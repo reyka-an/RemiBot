@@ -1,0 +1,6 @@
+@RemiQuest_HostAddress = http://localhost:5174
+
+GET {{RemiQuest_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
