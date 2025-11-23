@@ -2,6 +2,7 @@ using Telegram.Bot;
 using RemiQuest.Data;
 using Microsoft.EntityFrameworkCore;
 using RemiQuest.Services;
+using RemiQuest.Telegram;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<TelegramUpdateHandler>();
 
 var app = builder.Build();
 
