@@ -1,4 +1,6 @@
 using Telegram.Bot;
+using RemiQuest.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,10 @@ if (string.IsNullOrEmpty(botToken))
 builder.Services.AddSingleton<ITelegramBotClient>(_ =>
 {
     return new TelegramBotClient(botToken);
+});
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 // Add services to the container.
