@@ -5,12 +5,12 @@ public class User
     public int Id { get; set; }
 
     /// <summary>
-    /// Telegram user id (message.From.Id)
+    /// Telegram user id 
     /// </summary>
     public long TelegramUserId { get; set; }
 
     /// <summary>
-    /// Telegram username (может быть null)
+    /// Telegram username 
     /// </summary>
     public string? Username { get; set; }
 
@@ -26,7 +26,7 @@ public class User
     public int CurrentPoints { get; set; }
 
     /// <summary>
-    /// Дата и время регистрации пользователя в боте (UTC или локальное — по твоему выбору).
+    /// Дата и время регистрации пользователя в боте
     /// </summary>
     public DateTime CreatedAt { get; set; }
 

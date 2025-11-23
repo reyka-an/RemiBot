@@ -13,7 +13,7 @@ public class Reward
     public string Title { get; set; } = string.Empty;
 
     /// <summary>
-    /// Описание награды (опционально).
+    /// Описание награды
     /// </summary>
     public string? Description { get; set; }
 
@@ -28,7 +28,7 @@ public class Reward
     public bool IsFromFriend { get; set; }
 
     /// <summary>
-    /// Пользователь-друг, который добавил награду (если есть).
+    /// Пользователь-друг, который добавил награду
     /// </summary>
     public int? FriendUserId { get; set; }
     public User? FriendUser { get; set; }

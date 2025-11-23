@@ -5,7 +5,7 @@ public class Friend
     public int Id { get; set; }
 
     /// <summary>
-    /// Владелец данной записи (тот, у кого в списке друзей отображается FriendUser).
+    /// Владелец данной записи
     /// </summary>
     public int UserId { get; set; }
     public User User { get; set; } = default!;

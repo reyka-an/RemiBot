@@ -13,17 +13,17 @@ public class TaskItem
     public string Title { get; set; } = string.Empty;
 
     /// <summary>
-    /// Описание задачи (опционально).
+    /// Описание задачи
     /// </summary>
     public string? Description { get; set; }
 
     /// <summary>
-    /// Сложность / важность от 1 до 10.
+    /// Сложность от 1 до 10.
     /// </summary>
     public int Difficulty { get; set; }
 
     /// <summary>
-    /// Дедлайн задачи (может отсутствовать).
+    /// Дедлайн задачи
     /// </summary>
     public DateTime? Deadline { get; set; }
 
@@ -33,7 +33,7 @@ public class TaskItem
     public bool HasReminder { get; set; }
 
     /// <summary>
-    /// Время напоминания по задаче (если включено).
+    /// Время напоминания по задаче
     /// </summary>
     public DateTime? ReminderDateTime { get; set; }
 
@@ -48,7 +48,7 @@ public class TaskItem
     public DateTime CreatedAt { get; set; }
 
     /// <summary>
-    /// Когда задача была выполнена (если выполнена).
+    /// Когда задача была выполнена
     /// </summary>
     public DateTime? CompletedAt { get; set; }
 

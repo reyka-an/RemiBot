@@ -13,7 +13,7 @@ public class DialogueState
     public DialogueStateType State { get; set; }
 
     /// <summary>
-    /// Временные данные (например, частично заполненная задача) в формате JSON.
+    /// Временные данные в формате JSON.
     /// </summary>
     public string? TempData { get; set; }
 
@@ -35,5 +35,4 @@ public enum DialogueStateType
     AddReward_Title = 20,
     AddReward_Description = 21,
     AddReward_Cost = 22
-    // При необходимости ты легко добавишь новые шаги.
 }
