@@ -1,31 +1,52 @@
-using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
+using RemiQuest.Services;
 
 namespace RemiQuest.Controllers;
 
 [ApiController]
 [Route("/webhook")]
-
-public class WebhookController(ITelegramBotClient bot) : ControllerBase
+public class WebhookController : ControllerBase
 {
-    [HttpPost]
-    public async Task<IActionResult> HandelWebhook([FromBody] Update update)
+    private readonly ITelegramBotClient _bot;
+    private readonly UserService _userService;
+
+    public WebhookController(ITelegramBotClient bot, UserService userService)
     {
-        if (update.Message?.Text != null)
+        _bot = bot;
+        _userService = userService;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> HandleWebhook([FromBody] Update update)
+    {
+        if (update.Message?.Text is { } text)
         {
             var message = update.Message;
             var chatId = message.Chat.Id;
-            var text = message.Text;
+            var from = message.From;
+
+            // На будущее: здесь можно будет вызвать GetOrCreateUserAsync
+            if (from != null)
+            {
+                await _userService.GetOrCreateUserAsync(from.Id, from.Username);
+            }
 
             if (text.Equals("Привет", StringComparison.OrdinalIgnoreCase))
             {
-                await bot.SendMessage(chatId, "Привет! Как дела?");
+                await _bot.SendMessage(
+                    chatId: chatId,
+                    text: "Привет! Как дела?"
+                );
             }
             else
             {
-                await bot.SendMessage(chatId, "Как дела?");
+                await _bot.SendMessage(
+                    chatId: chatId,
+                    text: "Как дела?"
+                );
             }
         }
 
